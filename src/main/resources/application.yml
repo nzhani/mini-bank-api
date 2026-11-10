@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: mini-bank-api
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/minibank}
+    username: ${DB_USER:minibank}
+    password: ${DB_PASSWORD:minibank}
+  jpa:
+    hibernate:
+      ddl-auto: validate   # schema is owned by Flyway, Hibernate only checks it
+    open-in-view: false
+  flyway:
+    enabled: true
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
